@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Focus Timer Settings</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      padding: 20px;
+    }
+    
+    .container {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+      max-width: 600px;
+      width: 100%;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    .settings-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    
+    .settings-header h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    
+    .settings-header p {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+    
+    .settings-content {
+      padding: 30px;
+    }
+    
+    .setting-section {
+      margin-bottom: 30px;
+    }
+    
+    .section-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .section-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+      flex: 1;
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .badge-default {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+    
+    .badge-optional {
+      background: #f3e5f5;
+      color: #6a1b9a;
+    }
+    
+    .setting-description {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+    
+    .info-box {
+      background: #f5f5f5;
+      border-left: 4px solid #667eea;
+      padding: 12px;
+      border-radius: 4px;
+      margin: 12px 0;
+      font-size: 12px;
+      color: #555;
+      line-height: 1.6;
+    }
+    
+    .input-group {
+      margin: 12px 0;
+    }
+    
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 13px;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    
+    input[type="text"]:focus,
+    input[type="number"]:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+    
+    input[type="text"]::placeholder {
+      color: #999;
+    }
+    
+    .button-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    
+    button {
+      flex: 1;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 5px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+    }
+    
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+    
+    .btn-secondary {
+      background: #e0e0e0;
+      color: #333;
+    }
+    
+    .btn-secondary:hover {
+      background: #d0d0d0;
+    }
+    
+    .status-message {
+      font-size: 13px;
+      padding: 10px 12px;
+      border-radius: 5px;
+      margin-top: 10px;
+      display: none;
+    }
+    
+    .status-message.show {
+      display: block;
+    }
+    
+    .status-success {
+      background: #e8f5e9;
+      color: #2e7d32;
+      border-left: 4px solid #2e7d32;
+    }
+    
+    .status-error {
+      background: #ffebee;
+      color: #c62828;
+      border-left: 4px solid #c62828;
+    }
+    
+    .status-loading {
+      background: #e3f2fd;
+      color: #1565c0;
+      border-left: 4px solid #1565c0;
+    }
+    
+    .developer-section {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+      border: 1px solid rgba(102, 126, 234, 0.2);
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 30px;
+    }
+    
+    .developer-section h3 {
+      color: #667eea;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+    
+    .dev-info {
+      font-size: 13px;
+      color: #555;
+      margin: 8px 0;
+      line-height: 1.6;
+    }
+    
+    .dev-info a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    .dev-info a:hover {
+      text-decoration: underline;
+    }
+    
+    .divider {
+      height: 1px;
+      background: #eee;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="settings-header">
+      <h1>⏱️ Focus Timer</h1>
+      <p>Customize your productivity experience</p>
+    </div>
+    
+    <div class="settings-content">
+      <!-- Pixabay Music Section -->
+      <div class="setting-section">
+        <div class="section-header">
+          <span class="section-title">🎵 Pixabay Music</span>
+          <span class="badge badge-default">Default</span>
+        </div>
+        <div class="setting-description">
+          Choose from 6 carefully curated ambient music genres to enhance your focus sessions.
+        </div>
+        <div class="info-box">
+          ✅ <strong>Enabled</strong> (No API key required)<br>
+          Music sources: Pixabay CDN • Free & Creative Commons • No authentication needed
+        </div>
+      </div>
+      
+      <!-- SoundCloud Widget Section -->
+      <div class="setting-section">
+        <div class="section-header">
+          <span class="section-title">🎧 SoundCloud Widget</span>
+          <span class="badge badge-optional">Optional</span>
+        </div>
+        <div class="setting-description">
+          Add your favorite SoundCloud music directly to the extension. Leave empty to disable.
+        </div>
+        
+        <div class="input-group">
+          <label style="display: block; font-size: 12px; font-weight: 600; margin-bottom: 8px; color: #666;">
+            SoundCloud URL (optional)
+          </label>
+          <input type="text" id="soundcloudUrl" placeholder="https://soundcloud.com/artist/track-name">
+        </div>
+        
+        <div class="info-box">
+          <strong>Examples:</strong><br>
+          • Track: soundcloud.com/artist/track-name<br>
+          • Playlist: soundcloud.com/artist/sets/playlist<br>
+          • Profile: soundcloud.com/artist
+        </div>
+        
+        <div class="button-group">
+          <button class="btn-secondary" id="previewBtn">🧪 Preview</button>
+          <button class="btn-primary" id="saveSoundcloudBtn">💾 Save</button>
+        </div>
+        <div class="status-message" id="soundcloudStatus"></div>
+      </div>
+      
+      <!-- General Settings Section -->
+      <div class="setting-section">
+        <div class="section-header">
+          <span class="section-title">⚙️ General Settings</span>
+        </div>
+        <div class="setting-description">
+          Adjust global extension preferences.
+        </div>
+        
+        <div class="input-group">
+          <label style="display: block; font-size: 12px; font-weight: 600; margin-bottom: 8px; color: #666;">
+            Minimum Music Duration (seconds)
+          </label>
+          <input type="number" id="minDuration" min="0" placeholder="300">
+        </div>
+        
+        <button class="btn-primary" id="saveGeneralBtn" style="width: 100%;">💾 Save Settings</button>
+        <div class="status-message" id="generalStatus"></div>
+      </div>
+      
+      <!-- Developer Section -->
+      <div class="developer-section">
+        <h3>👨‍💻 About This Extension</h3>
+        <div class="dev-info">
+          <strong>Developer:</strong> <a href="https://github.com/meydawoodi" target="_blank">meydawoodi</a>
+        </div>
+        <div class="dev-info">
+          <strong>Repository:</strong> <a href="https://github.com/meydawoodi/focus-timer-chrome-extention" target="_blank">focus-timer-chrome-extention</a>
+        </div>
+        <div class="dev-info">
+          <strong>Version:</strong> 1.0.0
+        </div>
+        <div class="dev-info">
+          <strong>Description:</strong> A lightweight, focus-enhancing timer widget with ambient music support
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="options.js"></script>
+</body>
+</html>
