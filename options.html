@@ -257,11 +257,59 @@
           <span class="badge badge-default">Default</span>
         </div>
         <div class="setting-description">
-          Choose from 6 carefully curated ambient music genres to enhance your focus sessions.
+          Choose from 14 carefully curated ambient music tracks to enhance your focus sessions.
         </div>
         <div class="info-box">
           ✅ <strong>Enabled</strong> (No API key required)<br>
           Music sources: Pixabay CDN • Free & Creative Commons • No authentication needed
+        </div>
+        
+        <div class="music-list" id="musicList" style="margin-top: 15px;">
+          <div style="font-size: 13px; font-weight: 600; color: #333; margin-bottom: 10px;">Available Music Tracks:</div>
+          <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr; gap: 8px;">
+            <li style="padding: 10px; background: #f5f5f5; border-radius: 5px; border-left: 3px solid #667eea; font-size: 13px;">
+              <strong>🧘 Meditation</strong> - meditation-455105
+            </li>
+            <li style="padding: 10px; background: #f5f5f5; border-radius: 5px; border-left: 3px solid #667eea; font-size: 13px;">
+              <strong>😌 Just Relax</strong> - just-relax-11157
+            </li>
+            <li style="padding: 10px; background: #f5f5f5; border-radius: 5px; border-left: 3px solid #667eea; font-size: 13px;">
+              <strong>🧠 Calm My Mind</strong> - please-calm-my-mind-125566
+            </li>
+            <li style="padding: 10px; background: #f5f5f5; border-radius: 5px; border-left: 3px solid #667eea; font-size: 13px;">
+              <strong>🎹 Calm Piano</strong> - calm-piano-music-351839
+            </li>
+            <li style="padding: 10px; background: #f5f5f5; border-radius: 5px; border-left: 3px solid #667eea; font-size: 13px;">
+              <strong>🎹 Soft Piano</strong> - soft-piano-background-444129
+            </li>
+            <li style="padding: 10px; background: #f5f5f5; border-radius: 5px; border-left: 3px solid #667eea; font-size: 13px;">
+              <strong>✨ Lofi Study</strong> - chill-study-desk-focus-amp-concentration-lofi-451181
+            </li>
+            <li style="padding: 10px; background: #f5f5f5; border-radius: 5px; border-left: 3px solid #667eea; font-size: 13px;">
+              <strong>🎵 Lo-Fi Focus</strong> - lo-fi-focus-269100
+            </li>
+            <li style="padding: 10px; background: #f5f5f5; border-radius: 5px; border-left: 3px solid #667eea; font-size: 13px;">
+              <strong>🎯 Right On Target</strong> - right-on-target-15699
+            </li>
+            <li style="padding: 10px; background: #f5f5f5; border-radius: 5px; border-left: 3px solid #667eea; font-size: 13px;">
+              <strong>🎭 Fantasy Animation</strong> - fantasy-disney-animation-music-454916
+            </li>
+            <li style="padding: 10px; background: #f5f5f5; border-radius: 5px; border-left: 3px solid #667eea; font-size: 13px;">
+              <strong>🌌 Spatial Fantasy</strong> - spatial-fantasy-455240
+            </li>
+            <li style="padding: 10px; background: #f5f5f5; border-radius: 5px; border-left: 3px solid #667eea; font-size: 13px;">
+              <strong>🎼 Acoustic Meditation</strong> - dunbarton-meditative-ambient-soundscape-for-learning-and-relaxing-95403
+            </li>
+            <li style="padding: 10px; background: #f5f5f5; border-radius: 5px; border-left: 3px solid #667eea; font-size: 13px;">
+              <strong>🧠 ASMR Brain</strong> - asmr-power-brain-connect-spiritual-frequency-11946
+            </li>
+            <li style="padding: 10px; background: #f5f5f5; border-radius: 5px; border-left: 3px solid #667eea; font-size: 13px;">
+              <strong>😴 Relaxing Sleep</strong> - relaxing-sound-to-sleep-263614
+            </li>
+            <li style="padding: 10px; background: #f5f5f5; border-radius: 5px; border-left: 3px solid #667eea; font-size: 13px;">
+              <strong>🌧️ Rain Cocoon</strong> - rain-cocoon-316178
+            </li>
+          </ul>
         </div>
       </div>
       
@@ -311,7 +359,16 @@
           </label>
           <input type="number" id="minDuration" min="0" placeholder="300">
         </div>
-        
+        <div class="input-group">
+          <label style="display: block; font-size: 12px; font-weight: 600; margin-bottom: 8px; color: #666;">
+            <input type="checkbox" id="autoShowWidget" style="margin-right: 6px; vertical-align: middle;"> Show widget automatically on every page
+          </label>
+        </div>
+        <div class="input-group">
+          <label style="display: block; font-size: 12px; font-weight: 600; margin-bottom: 8px; color: #666;">
+            <input type="checkbox" id="showSoundCloudWidget" style="margin-right: 6px; vertical-align: middle;"> Show SoundCloud widget in timer
+          </label>
+        </div>
         <button class="btn-primary" id="saveGeneralBtn" style="width: 100%;">💾 Save Settings</button>
         <div class="status-message" id="generalStatus"></div>
       </div>

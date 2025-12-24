@@ -8,9 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const generalStatus = document.getElementById("generalStatus");
   
   // Load saved settings
-  chrome.storage.local.get(["soundcloudUrl", "minDuration"], (result) => {
+  chrome.storage.local.get(["soundcloudUrl", "minDuration", "autoShowWidget", "showSoundCloudWidget"], (result) => {
     soundcloudUrlInput.value = result.soundcloudUrl || "";
     minDurationInput.value = result.minDuration || 300;
+    document.getElementById("autoShowWidget").checked = result.autoShowWidget !== false;
+    document.getElementById("showSoundCloudWidget").checked = result.showSoundCloudWidget !== false;
   });
   
   // Save SoundCloud URL
@@ -52,8 +54,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Save general settings
   saveGeneralBtn.addEventListener("click", () => {
     const minDuration = parseInt(minDurationInput.value) || 300;
-    
-    chrome.storage.local.set({ minDuration }, () => {
+    const autoShowWidget = document.getElementById("autoShowWidget").checked;
+    const showSoundCloudWidget = document.getElementById("showSoundCloudWidget").checked;
+    chrome.storage.local.set({ minDuration, autoShowWidget, showSoundCloudWidget }, () => {
       showStatus(generalStatus, "✅ Settings saved successfully!", "success");
     });
   });
