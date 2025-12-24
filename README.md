@@ -2,6 +2,10 @@
 
 A lightweight, focus-enhancing timer widget with ambient music support for your browser.
 
+<img width="112" height="112" alt="image" src="https://github.com/user-attachments/assets/fe3f83b9-af53-48cf-9534-4d582bb9d1d4" />
+
+<img width="365" height="497" alt="image" src="https://github.com/user-attachments/assets/a0f12dcd-0fe0-483d-bf96-aa06c129ec2f" />
+
 ## Features
 
 ✨ **Floating Timer Widget**
