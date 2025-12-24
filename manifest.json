@@ -3,15 +3,26 @@
   "name": "Focus Timer",
   "version": "1.0.0",
   "description": "A floating timer widget with ambient music player for focus and productivity",
-  "permissions": ["storage", "activeTab", "scripting"],
-  "host_permissions": ["<all_urls>", "https://cdn.pixabay.com/*"],
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "https://cdn.pixabay.com/*"
+  ],
   "background": {
     "service_worker": "background.js"
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"]
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ]
     }
   ],
   "action": {
@@ -23,3 +34,4 @@
     "128": "icon.png"
   }
 }
+

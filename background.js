@@ -1,10 +1,10 @@
 const musicGenres = {
-  acoustic: "https://cdn.pixabay.com/download/audio/2024/01/15/audio_1331eae737.mp3",
-  lofi: "https://cdn.pixabay.com/download/audio/2024/01/16/audio_d3d63b434.mp3",
-  "button-smash": "https://cdn.pixabay.com/download/audio/2024/01/17/audio_fd5348f6d1.mp3",
-  friday: "https://cdn.pixabay.com/download/audio/2024/01/18/audio_0e6d88e01f.mp3",
-  synthwave: "https://cdn.pixabay.com/download/audio/2024/01/19/audio_4abddef6b4.mp3",
-  "heros-journey": "https://cdn.pixabay.com/download/audio/2024/01/20/audio_4b0134e14f.mp3"
+  acoustic: "https://pixabay.com/download/audio/?id=7371",
+  lofi: "https://pixabay.com/download/audio/?id=11126",
+  "button-smash": "https://pixabay.com/download/audio/?id=6714",
+  friday: "https://pixabay.com/download/audio/?id=7122",
+  synthwave: "https://pixabay.com/download/audio/?id=8846",
+  "heros-journey": "https://pixabay.com/download/audio/?id=9512"
 };
 
 const activeMusicTabs = {};
